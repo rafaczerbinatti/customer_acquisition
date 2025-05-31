@@ -11,9 +11,9 @@ df = pd.read_csv(r'C:\Users\Rafael\Documents\Python Projects\Customer Acquisitio
 
 # Group by acquisition source
 grouped = df.groupby('acquisition_source').agg(
-    total_revenue=('revenue_12_m', 'sum'),
+    total_revenue=('revenue', 'sum'),
     total_users=('user_id', 'count'),
-    avg_revenue_per_user=('revenue_12_m', 'mean'),
+    avg_revenue_per_user=('revenue', 'mean'),
     avg_cpa=('cpa', 'mean')
 ).reset_index()
 
@@ -40,7 +40,7 @@ for idx, bar in enumerate(bars):
 # Title only
 plt.title('ROI by Acquisition Source')
 plt.xlabel('')
-plt.ylabel('')  # can add 'ROI (Revenue ÷ CPA)' if preferred
+plt.ylabel('')  
 
 # Clean styling
 plt.grid(False)
